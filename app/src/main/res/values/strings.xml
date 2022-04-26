@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GBlesson1</string>
+    <string name="textViewMainActivity">Текст тектс вьюхе</string>
+    <string name="button">Button</string>
+    <string name="togglebuttontext">123131231</string>
+    <string name="checkboxText">Сделать хорошо</string>
+    <string name="switchText">Включалка выключалка</string>
+    <string name="ButtonNextActivity">Переключить лейаут</string>
+    <string name="personname">PersonName</string>
+    <string name="textpasseword">textPasseword</string>
+    <string name="textphone">textPhone</string>
 </resources>
