@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NumbersButton" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/grеy</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/MainButtonMerging</item>
+        <item name="android:textSize">@dimen/ButtonTextSize</item>
+        <item name="android:padding">@dimen/MainButtonPadding</item>
+    </style>
+
+    <style name="ActionsButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/MainButtonMerging</item>
+        <item name="android:textSize">@dimen/ButtonTextSize</item>
+        <item name="android:padding">@dimen/MainButtonPadding</item>
+    </style>
+
+    <style name="OrangeButton" parent="@style/Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/orange</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/MainButtonMerging</item>
+        <item name="android:textSize">@dimen/ButtonTextSize</item>
+        <item name="android:padding">@dimen/MainButtonPadding</item>
+    </style>
+
+</resources>
