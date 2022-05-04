@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.homework.gblesson1.databinding.ActivityMainBinding
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,24 +30,24 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         calculator = savedInstanceState.getParcelable(CALK_CLASS)!!
-        binding.actionLineText.text = calculator.actionLine
+        binding.actionLineText.setText(calculator.actionLine)
     }
 
     private fun clickOnNumber(button: Button) {
         calculator.addNumber(button.text.toString())
-        binding.actionLineText.text = calculator.actionLine
+        binding.actionLineText.setText(calculator.actionLine)
     }
 
     private fun clickOnOperation(key: String, button: Button) {
         calculator.addCalcAction(button.text[0])
 //        calculator.addChar(button.text.toString())
-        binding.actionLineText.text = calculator.actionLine
+        binding.actionLineText.setText(calculator.actionLine)
     }
 
     private fun clickOnComma() {
         calculator.addComm()
 //        calculator.addChar(".")
-        binding.actionLineText.text = calculator.actionLine
+        binding.actionLineText.setText(calculator.actionLine)
     }
 
     private fun initMain() {
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonComma.setOnClickListener { clickOnComma() }
 
         numberButton.forEach {
-            it!!.setOnClickListener { it -> clickOnNumber(it as Button) }
+            it!!.setOnClickListener { clickOnNumber(it as Button) }
         }
 
         operationsButton.forEach { (key, value) ->

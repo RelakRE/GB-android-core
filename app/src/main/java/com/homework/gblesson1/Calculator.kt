@@ -2,6 +2,7 @@ package com.homework.gblesson1
 
 import android.os.Parcel
 import android.os.Parcelable
+import java.text.DecimalFormat
 
 class Calculator() : Parcelable {
 
@@ -9,6 +10,8 @@ class Calculator() : Parcelable {
     var lineBeforeLastNumber = ""
     private var lastNumber: Double = 0.0
     private var lastNumberString: String = ""
+    val numberFormat =  DecimalFormat("#.#######")
+
 
     constructor(parcel: Parcel) : this() {
         actionLine = parcel.readString().toString()
@@ -21,14 +24,14 @@ class Calculator() : Parcelable {
     fun addNumber(numberString: String) {
         lastNumberString += numberString
         lastNumber = lastNumberString.toDouble()
-        actionLine = lineBeforeLastNumber + lastNumber.toString()
+        actionLine = lineBeforeLastNumber + numberFormat.format(lastNumber)
     }
 
     fun addComm() {
         if (lastNumberString.indexOf('.') < 0) {
             lastNumberString += "."
             lastNumber = lastNumberString.toDouble()
-            actionLine = lineBeforeLastNumber + lastNumber.toString()
+            actionLine = lineBeforeLastNumber + numberFormat.format(lastNumber)
         }
     }
 
@@ -37,7 +40,7 @@ class Calculator() : Parcelable {
             lineBeforeLastNumber = lineBeforeLastNumber.dropLast(1) + c
             actionLine = actionLine.dropLast(1) + c
         } else {
-            lineBeforeLastNumber += lastNumber.toString() + c
+            lineBeforeLastNumber += numberFormat.format(lastNumber) + c
             actionLine = lineBeforeLastNumber
             lastNumber = 0.0
             lastNumberString = ""

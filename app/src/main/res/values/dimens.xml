@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ButtonTextSize">14sp</dimen>
+    <dimen name="MainButtonMerging">4dp</dimen>
+    <dimen name="MainButtonPadding">8dp</dimen>
+</resources>
