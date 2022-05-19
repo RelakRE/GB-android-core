@@ -22,7 +22,7 @@
             android:id="@+id/actionLineText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -172,6 +172,14 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
         app:layout_constraintStart_toEndOf="@+id/buttonComma"
         app:layout_constraintTop_toTopOf="@+id/buttonComma" />
+
+    <Button
+        android:id="@+id/buttonChangeTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_theme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

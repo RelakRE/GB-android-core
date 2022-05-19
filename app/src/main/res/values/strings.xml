@@ -16,4 +16,10 @@
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="equals">=</string>
+    <string name="screen_reader_main_calc">Значение</string>
+    <string name="change_theme">Сменить тему</string>
+    <string name="appcompat_daynight">AppCompat DayNight</string>
+    <string name="material_noactionbar">Material NoActionBar</string>
+    <string name="material_daynight">Material DayNight</string>
+    <string name="material_light">Material light</string>
 </resources>

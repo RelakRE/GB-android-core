@@ -28,10 +28,10 @@ class Calculator() : Parcelable {
     }
 
     fun addComm() {
-        if (lastNumberString.indexOf('.') < 0) {
+        if (lastNumberString.indexOf('.') < 0 && lastNumberString != "") {
             lastNumberString += "."
             lastNumber = lastNumberString.toDouble()
-            actionLine = lineBeforeLastNumber + numberFormat.format(lastNumber)
+            actionLine = lineBeforeLastNumber + numberFormat.format(lastNumber) + '.'
         }
     }
 

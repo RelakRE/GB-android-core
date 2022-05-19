@@ -1,19 +1,28 @@
 package com.homework.gblesson1
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.homework.gblesson1.databinding.ActivityMainBinding
-import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
     val CALK_CLASS = "keyForBundle"
     lateinit var binding: ActivityMainBinding
     private lateinit var calculator: Calculator
+    private var themeId = -1
 
+    companion object {
+        var THEME_APP = "themeKey"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) {
+            if (savedInstanceState.getInt(THEME_APP, -1) != -1) {
+                setTheme(savedInstanceState.getInt(THEME_APP))
+            }
+        }
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,9 +31,18 @@ class MainActivity : AppCompatActivity() {
         initMain()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null) {
+            themeId = data.getIntExtra(THEME_APP, -1)
+        }
+        recreate()
+    }
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(CALK_CLASS, calculator)
+        outState.putInt(THEME_APP, themeId)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -67,11 +85,11 @@ class MainActivity : AppCompatActivity() {
         numberButton[9] = binding.button9
 
         val operationsButton: Map<String, Button> = mapOf(
-                "Division" to binding.buttonDivision,
-                "Multi" to binding.buttonMulti,
-                "Sub" to binding.buttonSub,
-                "Add" to binding.buttonAdd,
-                "Res" to binding.buttonRes
+            "Division" to binding.buttonDivision,
+            "Multi" to binding.buttonMulti,
+            "Sub" to binding.buttonSub,
+            "Add" to binding.buttonAdd,
+            "Res" to binding.buttonRes
         )
 
         binding.buttonComma.setOnClickListener { clickOnComma() }
@@ -82,6 +100,11 @@ class MainActivity : AppCompatActivity() {
 
         operationsButton.forEach { (key, value) ->
             value.setOnClickListener { clickOnOperation(key, value) }
+        }
+
+        binding.buttonChangeTheme.setOnClickListener {
+            val intent = Intent(this, ChangeThemeActivity::class.java)
+            startActivityForResult(intent,1)
         }
     }
 }
